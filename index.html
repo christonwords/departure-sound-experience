@@ -5,9 +5,111 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Departure: A Sound Experience</title>
-  <link rel="stylesheet" href="styles.css">
+  <!-- Link to Bebas Neue font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Bebas Neue', sans-serif;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1, h2, p {
+      color: white;
+      text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    header {
+      margin-top: 50px;
+    }
+
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.2;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-player {
+      margin-top: 30px;
+      width: 80%;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    }
+
+    .listen-now, .support {
+      margin: 40px 0;
+    }
+
+    .listen-now button, .support button {
+      background-color: transparent;
+      border: 2px solid #00FFFF;
+      color: #00FFFF;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      margin: 10px;
+    }
+
+    .listen-now button:hover, .support button:hover {
+      background-color: #00FFFF;
+      color: black;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    }
+
+    .paypal, .crypto {
+      font-size: 1.1rem;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 1rem;
+      color: #888;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    }
+
+    /* Glowing Hover Effect for Buttons */
+    .listen-now button:hover, .support button:hover {
+      background-color: #00FFFF;
+      color: black;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
+  <!-- Background Video -->
+  <div class="video-background">
+    <video autoplay muted loop id="background-video">
+      <source src="dunebg.mp4" type="video/mp4"> <!-- Replace with your video file -->
+    </video>
+  </div>
+
   <header>
     <h1>Departure: A Sound Experience</h1>
     <p>Embark on a journey through sound. A departure is not an escape, but a becoming.</p>
@@ -16,15 +118,18 @@
   <main>
     <section class="listen-now">
       <h2>Listen Now</h2>
-      <!-- Updated button to open the audio file from GitHub Releases -->
-      <button id="listen-button">Play Entire Project</button>
+      <!-- Video Player for the audio (You can include a video track here) -->
+      <video controls class="video-player">
+        <source src="https://github.com/christonwords/departure-sound-experience/releases/download/v1.0/depart.mov" type="video/mp4">
+        Your browser does not support the video element.
+      </video>
     </section>
 
     <section class="support">
       <h2>Support the Project</h2>
       <p>If you enjoy this work, consider supporting through PayPal or cryptocurrency:</p>
-      <button class="paypal">Pay with PayPal</button>
-      <button class="crypto">Donate with Crypto</button>
+      <button class="paypal" onclick="window.location.href='https://www.paypal.me/YOUR_PAYPAL_LINK'">Pay with PayPal</button>
+      <button class="crypto" onclick="window.location.href='https://www.coinbase.com/YOUR_CRYPTO_LINK'">Donate with Crypto</button>
     </section>
   </main>
 
@@ -32,6 +137,11 @@
     <p>&copy; 2025 Christon</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Listen Now button functionality (if needed)
+    document.getElementById('listen-button')?.addEventListener('click', function () {
+      window.location.href = 'https://github.com/christonwords/departure-sound-experience/releases/download/v1.0/depart.mov'; // Replace with your actual URL
+    });
+  </script>
 </body>
 </html>
